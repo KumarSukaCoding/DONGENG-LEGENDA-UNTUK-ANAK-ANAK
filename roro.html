@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legenda Roro Jonggrang</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0 20px;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #e6f4ea, #c1e1c1);
+      color: #14532d;
+      line-height: 1.7;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    h1 {
+      color: #166534;
+      text-align: center;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      margin-top: 20px;
+      text-shadow: 0 3px 10px rgba(22, 101, 52, 0.2);
+    }
+
+    h2 {
+      text-align: center;
+      color: #15803d;
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      margin-top: 40px;
+      font-weight: 700;
+    }
+
+    h6 {
+      text-align: center;
+      color: #4d7c57;
+      font-weight: 500;
+      font-size: clamp(0.8rem, 2.5vw, 1rem);
+      margin-top: -10px;
+    }
+
+    img {
+      display: block;
+      margin: 30px auto;
+      width: 100%;
+      max-width: 350px;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(22, 163, 74, 0.2);
+    }
+
+    p {
+      text-align: justify;
+      background: rgba(255, 255, 255, 0.6);
+      padding: 15px 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(22, 101, 52, 0.1);
+      margin: 20px auto;
+      max-width: 900px;
+      font-size: clamp(1rem, 2.5vw, 1.1rem);
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 15px;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Efek animasi hover */
+    a:hover {
+      background: linear-gradient(135deg, #4ade80, #22c55e);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 0 15px rgba(34, 197, 94, 0.4);
+      animation: pulse 1s ease infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6); }
+      70% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+    }
+
+    .profile-container {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+      margin-bottom: 40px;
+    }
+
+    .profile-card {
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(22, 163, 74, 0.2);
+      width: 260px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* Efek hover untuk kartu tokoh */
+    .profile-card:hover {
+      transform: translateY(-5px) scale(1.03);
+      box-shadow: 0 8px 20px rgba(22, 163, 74, 0.3);
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .profile-card img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(22, 101, 52, 0.3);
+      margin-bottom: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    /* Gambar di kartu ikut berdenyut */
+    .profile-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .profile-card h3 {
+      color: #166534;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px 10px;
+      margin-top: 40px;
+      font-size: clamp(1rem, 3vw, 1.1rem);
+      color: white;
+      background-color: #166534;
+      border-top: 3px solid #9bcc9b;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+      transform: scale(1.05);
+      color: #bbf7d0;
+    }
+
+    @media (max-width: 600px) {
+      .profile-card {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>🏰 LEGENDA RORO JONGGRANG</h1>
+  <h6>"Web By Qumara R.F. Absen 27"</h6>
+
+  <img src="roro.png" alt="Ilustrasi Roro Jonggrang">
+
+  <h2>📜 Kisah Roro Jonggrang</h2>
+
+  <p>
+    Dahulu kala, di tanah Jawa, hiduplah seorang raja bernama Prabu Boko yang memiliki seorang putri cantik bernama Roro Jonggrang.
+    Roro Jonggrang dikenal sangat jelita dan anggun, sehingga banyak pangeran dan raja yang ingin meminangnya menjadi istri.
+    Namun, ada satu pangeran bernama Raden Bandung Bondowoso yang sangat mencintai Roro Jonggrang.
+    Ia adalah seorang pangeran sakti mandraguna yang juga memiliki kekuatan magis. Karena cintanya yang dalam, ia ingin menikahi Roro Jonggrang.
+  </p>
+
+  <p>
+    Namun, Roro Jonggrang menolak lamaran itu. Ia sebenarnya mencintai seseorang yang lain dan tidak ingin menikah dengan Bandung Bondowoso.
+    Maka, ia berusaha menghindar dari pangeran itu. Bandung Bondowoso tidak mudah menyerah.
+    Ia berperang melawan ayah Roro Jonggrang, Prabu Boko, dan berhasil mengalahkannya. Setelah itu, ia memaksa agar lamaran diterima.
+  </p>
+
+  <p>
+    Untuk menghindari pernikahan, <mark>Roro Jonggrang mengajukan syarat yang sangat sulit — Bandung Bondowoso harus membangun seribu candi dalam satu malam.</mark>
+    Dengan kekuatan gaib, ia memanggil jin dan makhluk halus untuk membantu. Namun, menjelang pagi, Roro Jonggrang menipu dengan membuat suasana seolah matahari telah terbit.
+    Jin-jin ketakutan dan pergi, sehingga candi belum genap seribu.
+  </p>
+
+  <p>
+    Bandung Bondowoso marah besar karena merasa ditipu. Ia mengutuk Roro Jonggrang menjadi arca yang menghiasi candi terakhir yang belum selesai.
+    Arca itu kini dikenal sebagai Arca Roro Jonggrang di Candi Prambanan, salah satu kompleks candi Hindu terbesar di Indonesia.
+  </p>
+
+  <h2>✨ Makna dan Pesan Moral</h2>
+  <p>
+    Kisah Roro Jonggrang mengajarkan tentang cinta, kejujuran, dan akibat dari kebohongan.
+    Legenda ini juga menjadi asal-usul terbentuknya Candi Prambanan yang megah,
+    salah satu warisan budaya terbesar di Indonesia.
+  </p>
+
+  <h2>👑 Tokoh-tokoh dalam Cerita Dongeng Roro Jonggrang</h2>
+
+  <div class="profile-container">
+    <div class="profile-card">
+      <img src="roro.png" alt="Roro Jonggrang">
+      <h3>👑 Roro Jonggrang</h3>
+    </div>
+    <div class="profile-card">
+      <img src="bondowoso.png" alt="Bandung Bondowoso">
+      <h3>⚔️ Bandung Bondowoso</h3>
+    </div>
+    <div class="profile-card">
+      <img src="jin.png" alt="Pasukan Jin">
+      <h3>👻 Pasukan Jin</h3>
+    </div>
+  </div>
+
+  <center>
+    <a href="https://www.youtube.com/watch?v=N5VQYcmEBwk" target="_blank">📺 Video ilustrasi cerita Legenda Roro Jonggrang</a>
+  </center>
+
+  <!-- Footer -->
+  <footer>
+    <a href="index.html">🏠 Kembali ke Halaman Utama</a>
+  </footer>
+</body>
+</html>
