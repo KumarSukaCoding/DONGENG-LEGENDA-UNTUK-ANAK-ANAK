@@ -1,2 +1,2 @@
 # DONGENG-LEGENDA-UNTUK-ANAK-ANAK
-Tugas masih WIP, belum sempurna sepenuhnya.
+Tugas masih WIP, masih ada banyak yang harus dirubah 🙏
