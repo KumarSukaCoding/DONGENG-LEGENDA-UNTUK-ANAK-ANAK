@@ -6,8 +6,249 @@
   <title>Dongeng Legenda</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
   <style>
-    /* (semua style tetap sama seperti sebelumnya) */
+    /* Tampilan dasar */
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, #e6f4ea, #c1e1c1);
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 700px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Logo kiri atas */
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 30px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: #166534;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+    }
+
+    .logo i {
+      color: #22c55e;
+      font-size: 1.4rem;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      color: #22c55e;
+    }
+
+    .logo:hover i {
+      transform: rotate(-15deg) scale(1.1);
+    }
+
+    /* Judul utama */
+    h1 {
+      color: #166534;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      margin-bottom: 25px;
+      text-shadow: 0 2px 10px rgba(34, 197, 94, 0.3);
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      transform: translateY(-20px);
+      line-height: 1.3;
+    }
+
+    h1:hover {
+      color: #22c55e;
+      text-shadow: 0 4px 20px rgba(74, 222, 128, 0.6);
+      transform: translateY(-20px) scale(1.02);
+    }
+
+    /* Gambar utama */
+    .main-image {
+      width: clamp(250px, 80%, 480px);
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(22, 163, 74, 0.25);
+      margin: 20px 0 40px;
+      transition: all 0.4s ease;
+    }
+
+    .main-image:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 35px rgba(34, 197, 94, 0.4);
+    }
+
+    /* Navigasi kanan atas */
+    nav {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      z-index: 10;
+    }
+
+    .menu {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: #166534;
+      font-weight: 600;
+      transition: color 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .menu a i {
+      color: #22c55e;
+    }
+
+    .menu a:hover {
+      color: #22c55e;
+    }
+
+    /* Tombol hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      width: 28px;
+      height: 22px;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+    }
+
+    .bar {
+      height: 3px;
+      width: 100%;
+      background-color: #166534;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    /* Daftar link utama */
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .bullet i {
+      color: #16a34a;
+      font-size: 1.4rem;
+      transition: all 0.3s ease;
+    }
+
+    ul a {
+      text-decoration: none;
+      color: white;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      padding: 12px 25px;
+      border-radius: 12px;
+      font-size: clamp(1rem, 3vw, 1.3rem);
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(22, 163, 74, 0.3);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-width: 230px;
+      text-align: center;
+    }
+
+    li:hover .bullet i {
+      color: #4ade80;
+      transform: scale(1.3);
+      text-shadow: 0 0 10px rgba(74, 222, 128, 0.8);
+    }
+
+    li:hover a {
+      background: linear-gradient(135deg, #4ade80, #22c55e);
+      box-shadow: 0 6px 25px rgba(34, 197, 94, 0.5);
+      transform: translateY(-3px) scale(1.05);
+      letter-spacing: 1px;
+    }
+
+    /* Responsif */
+    @media (max-width: 600px) {
+      .menu {
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background: white;
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        display: none;
+      }
+
+      .menu.active {
+        display: flex;
+        animation: fadeIn 0.4s ease;
+      }
+
+      @keyframes fadeIn {
+        from {opacity: 0; transform: translateY(-10px);}
+        to {opacity: 1; transform: translateY(0);}
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      ul a {
+        min-width: 200px;
+      }
+
+      .logo {
+        font-size: 1rem;
+        left: 15px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -33,19 +274,12 @@
   <!-- Konten utama -->
   <div class="container">
     <h1><i class="fa-solid fa-book-open-reader"></i> KUMPULAN DONGENG LEGENDA UNTUK ANAK-ANAK</h1>
-    <img src="kumpulan.png" alt="Ilustrasi Dongeng" class="main-image">
+    <img src="gambar.jpg" alt="Ilustrasi Dongeng" class="main-image">
 
     <ul>
-      <!-- Cerita Roro Jonggrang -->
       <li>
         <span class="bullet"><i class="fa-solid fa-book-open"></i></span>
         <a href="roro.html"><i class="fa-solid fa-torii-gate"></i> Cerita Roro Jonggrang</a>
-      </li>
-
-      <!-- Link baru: Favourite Manga -->
-      <li>
-        <span class="bullet"><i class="fa-solid fa-bookmark"></i></span>
-        <a href="favourite-manga.html"><i class="fa-solid fa-heart"></i> Favourite Manga</a>
       </li>
     </ul>
   </div>
