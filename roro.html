@@ -167,6 +167,18 @@
         width: 90%;
       }
     }
+
+    /* === Tambahan: Sticky Pemutar Musik === */
+    .music-player {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 10px 15px;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(22, 163, 74, 0.3);
+      z-index: 1000;
+    }
   </style>
 </head>
 
@@ -229,6 +241,14 @@
   <center>
     <a href="https://www.youtube.com/watch?v=N5VQYcmEBwk" target="_blank">📺 Video ilustrasi cerita Legenda Roro Jonggrang</a>
   </center>
+
+  <!-- Pemutar Musik Sticky -->
+  <div class="music-player">
+    <audio controls autoplay loop>
+      <source src="in the pool_musicaldown.com_1760110768.mp3" type="audio/mpeg">
+      Browser kamu tidak mendukung elemen audio.
+    </audio>
+  </div>
 
   <!-- Footer -->
   <footer>
