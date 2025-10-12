@@ -77,6 +77,7 @@
       overflow: hidden;
     }
 
+    /* === PROFILE CARD === */
     .profile-container {
       display: flex;
       justify-content: center;
@@ -113,7 +114,7 @@
       margin-bottom: 10px;
     }
 
-    /* === CARD SLIDE BARU === */
+    /* === CARD SLIDE RESPONSIF === */
     .card-slide {
       display: flex;
       gap: 20px;
@@ -121,11 +122,13 @@
       scroll-behavior: smooth;
       padding: 20px 0;
       margin: 30px auto;
-      max-width: 900px;
+      max-width: 100%;
+      scrollbar-width: thin;
+      scrollbar-color: #22c55e #e6f4ea;
     }
 
     .card-slide::-webkit-scrollbar {
-      height: 10px;
+      height: 8px;
     }
     .card-slide::-webkit-scrollbar-thumb {
       background-color: #22c55e;
@@ -133,13 +136,13 @@
     }
 
     .slide-card {
-      flex: 0 0 auto;
-      width: 280px;
+      flex: 0 0 calc(33.33% - 20px);
       border-radius: 16px;
       overflow: hidden;
       box-shadow: 0 4px 20px rgba(22, 163, 74, 0.25);
       background: white;
       transition: all 0.4s ease;
+      min-width: 250px;
     }
 
     .slide-card img {
@@ -154,6 +157,23 @@
       text-align: center;
       padding: 10px;
       color: #166534;
+      font-size: clamp(1rem, 2.5vw, 1.1rem);
+    }
+
+    /* === RESPONSIVE BREAKPOINTS === */
+    @media (max-width: 900px) {
+      .slide-card {
+        flex: 0 0 calc(50% - 20px);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .slide-card {
+        flex: 0 0 80%;
+      }
+      .profile-card {
+        width: 85%;
+      }
     }
 
     footer {
@@ -172,12 +192,6 @@
       font-weight: 600;
     }
 
-    @media (max-width: 600px) {
-      .profile-card {
-        width: 90%;
-      }
-    }
-
     .music-player {
       position: fixed;
       bottom: 15px;
@@ -189,7 +203,7 @@
       z-index: 1000;
     }
 
-    /* === Efek Hover Elegan untuk Semua Gambar & Card === */
+    /* === Efek Hover Elegan === */
     img:hover {
       transform: scale(1.05);
       box-shadow: 0 6px 25px rgba(22, 163, 74, 0.4);
@@ -215,7 +229,6 @@
     }
   </style>
 </head>
-
 <body>
   <h1>🏰 LEGENDA RORO JONGGRANG</h1>
   <h6>"Web By Qumara R.F. Absen 27"</h6>
@@ -224,39 +237,9 @@
 
   <h2>📜 Kisah Roro Jonggrang</h2>
 
-  <p>
-    Dahulu kala, di tanah Jawa, hiduplah seorang raja bernama Prabu Boko yang memiliki seorang putri cantik bernama Roro Jonggrang.
-    Roro Jonggrang dikenal sangat jelita dan anggun, sehingga banyak pangeran dan raja yang ingin meminangnya menjadi istri.
-    Namun, ada satu pangeran bernama Raden Bandung Bondowoso yang sangat mencintai Roro Jonggrang.
-    Ia adalah seorang pangeran sakti mandraguna yang juga memiliki kekuatan magis. Karena cintanya yang dalam, ia ingin menikahi Roro Jonggrang.
-  </p>
+  <p>Dahulu kala, di tanah Jawa, hiduplah seorang raja bernama Prabu Boko...</p>
 
-  <p>
-    Namun, Roro Jonggrang menolak lamaran itu. Ia sebenarnya mencintai seseorang yang lain dan tidak ingin menikah dengan Bandung Bondowoso.
-    Maka, ia berusaha menghindar dari pangeran itu. Bandung Bondowoso tidak mudah menyerah.
-    Ia berperang melawan ayah Roro Jonggrang, Prabu Boko, dan berhasil mengalahkannya. Setelah itu, ia memaksa agar lamaran diterima.
-  </p>
-
-  <p>
-    Untuk menghindari pernikahan, <mark>Roro Jonggrang mengajukan syarat yang sangat sulit — Bandung Bondowoso harus membangun seribu candi dalam satu malam.</mark>
-    Dengan kekuatan gaib, ia memanggil jin dan makhluk halus untuk membantu. Namun, menjelang pagi, Roro Jonggrang menipu dengan membuat suasana seolah matahari telah terbit.
-    Jin-jin ketakutan dan pergi, sehingga candi belum genap seribu.
-  </p>
-
-  <p>
-    Bandung Bondowoso marah besar karena merasa ditipu. Ia mengutuk Roro Jonggrang menjadi arca yang menghiasi candi terakhir yang belum selesai.
-    Arca itu kini dikenal sebagai Arca Roro Jonggrang di Candi Prambanan, salah satu kompleks candi Hindu terbesar di Indonesia.
-  </p>
-
-  <h2>✨ Makna dan Pesan Moral</h2>
-  <p>
-    Kisah Roro Jonggrang mengajarkan tentang cinta, kejujuran, dan akibat dari kebohongan.
-    Legenda ini juga menjadi asal-usul terbentuknya Candi Prambanan yang megah,
-    salah satu warisan budaya terbesar di Indonesia.
-  </p>
-
-  <h2>👑 Tokoh-tokoh dalam Cerita Dongeng Roro Jonggrang</h2>
-
+  <h2>👑 Tokoh-tokoh dalam Cerita</h2>
   <div class="profile-container">
     <div class="profile-card">
       <img src="roro.png" alt="Roro Jonggrang">
@@ -289,7 +272,7 @@
   </div>
 
   <center>
-    <a href="https://www.youtube.com/watch?v=N5VQYcmEBwk" target="_blank">📺 Video ilustrasi cerita Legenda Roro Jonggrang</a>
+    <a href="https://www.youtube.com/watch?v=N5VQYcmEBwk" target="_blank">📺 Video ilustrasi cerita</a>
   </center>
 
   <div class="music-player">
