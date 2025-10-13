@@ -113,15 +113,21 @@
       margin-bottom: 10px;
     }
 
-    /* === CARD SLIDE BARU === */
+    /* === CARD SLIDE DENGAN NAVIGASI ARROW === */
+    .card-slide-container {
+      position: relative;
+      max-width: 900px;
+      margin: 30px auto;
+    }
+
     .card-slide {
       display: flex;
       gap: 20px;
       overflow-x: auto;
       scroll-behavior: smooth;
       padding: 20px 0;
-      margin: 30px auto;
-      max-width: 900px;
+      scrollbar-width: thin;
+      scrollbar-color: #22c55e transparent;
     }
 
     .card-slide::-webkit-scrollbar {
@@ -156,6 +162,78 @@
       color: #166534;
     }
 
+    /* TOMBOL NAVIGASI ARROW - HANYA MUNCUL DI MOBILE/TABLET */
+    .nav-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: white;
+      border: none;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(22, 163, 74, 0.4);
+      transition: all 0.3s ease;
+      z-index: 10;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-arrow:hover {
+      background: linear-gradient(135deg, #16a34a, #15803d);
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 6px 20px rgba(22, 163, 74, 0.6);
+    }
+
+    .nav-arrow:active {
+      transform: translateY(-50%) scale(0.95);
+    }
+
+    .nav-arrow.left {
+      left: -20px;
+    }
+
+    .nav-arrow.right {
+      right: -20px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-arrow {
+        display: flex;
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+      }
+      
+      .nav-arrow.left {
+        left: -10px;
+      }
+      
+      .nav-arrow.right {
+        right: -10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-arrow {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+      }
+      
+      .nav-arrow.left {
+        left: 0;
+      }
+      
+      .nav-arrow.right {
+        right: 0;
+      }
+    }
+
     footer {
       text-align: center;
       padding: 15px 10px;
@@ -178,15 +256,93 @@
       }
     }
 
+    /* AUDIO PLAYER HAMBURGER MENU */
+    .music-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(22, 163, 74, 0.4);
+      z-index: 1001;
+      transition: all 0.3s ease;
+    }
+
+    .music-toggle:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(22, 163, 74, 0.6);
+    }
+
+    .hamburger {
+      width: 24px;
+      height: 20px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger span {
+      display: block;
+      position: absolute;
+      height: 3px;
+      width: 100%;
+      background: white;
+      border-radius: 3px;
+      opacity: 1;
+      left: 0;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger span:nth-child(1) {
+      top: 0;
+    }
+
+    .hamburger span:nth-child(2) {
+      top: 8px;
+    }
+
+    .hamburger span:nth-child(3) {
+      top: 16px;
+    }
+
+    .music-toggle.active .hamburger span:nth-child(1) {
+      top: 8px;
+      transform: rotate(45deg);
+    }
+
+    .music-toggle.active .hamburger span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .music-toggle.active .hamburger span:nth-child(3) {
+      top: 8px;
+      transform: rotate(-45deg);
+    }
+
     .music-player {
       position: fixed;
-      bottom: 15px;
-      right: 15px;
-      background: rgba(255, 255, 255, 0.8);
-      padding: 10px 15px;
+      bottom: 80px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 15px 20px;
       border-radius: 20px;
-      box-shadow: 0 4px 15px rgba(22, 163, 74, 0.3);
+      box-shadow: 0 4px 20px rgba(22, 163, 74, 0.4);
       z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+      transition: all 0.4s ease;
+    }
+
+    .music-player.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
     }
 
     /* === Efek Hover Elegan untuk Semua Gambar & Card === */
@@ -273,27 +429,39 @@
   </div>
 
   <h2>🖼️ Galeri Cerita</h2>
-  <div class="card-slide">
-    <div class="slide-card">
-      <img src="lukisan candi roro jonggrang.jpg" alt="Candi Prambanan">
-      <h4>Candi Prambanan</h4>
+  <div class="card-slide-container">
+    <button class="nav-arrow left" onclick="slideLeft()">‹</button>
+    <div class="card-slide" id="cardSlide">
+      <div class="slide-card">
+        <img src="lukisan candi roro jonggrang.jpg" alt="Candi Prambanan">
+        <h4>Candi Prambanan</h4>
+      </div>
+      <div class="slide-card">
+        <img src="buatkan lukisan hutan rimba seperti cerita roro jonggrang.jpg" alt="Hutan Rimba">
+        <h4>Hutan Rimba</h4>
+      </div>
+      <div class="slide-card">
+        <img src="arca.png" alt="Arca">
+        <h4>Arca Roro Jonggrang</h4>
+      </div>
     </div>
-    <div class="slide-card">
-      <img src="buatkan lukisan hutan rimba seperti cerita roro jonggrang.jpg" alt="Hutan Rimba">
-      <h4>Hutan Rimba</h4>
-    </div>
-    <div class="slide-card">
-      <img src="arca.png" alt="Arca">
-      <h4>Arca Roro Jonggrang</h4>
-    </div>
+    <button class="nav-arrow right" onclick="slideRight()">›</button>
   </div>
 
   <center>
     <a href="https://www.youtube.com/watch?v=N5VQYcmEBwk" target="_blank">📺 Video ilustrasi cerita Legenda Roro Jonggrang</a>
   </center>
 
-  <div class="music-player">
-    <audio controls autoplay loop>
+  <div class="music-toggle" id="musicToggle" onclick="toggleMusic()">
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <div class="music-player" id="musicPlayer">
+    <audio id="audioPlayer" controls autoplay loop>
       <source src="in the pool_musicaldown.com_1760110768.mp3" type="audio/mpeg">
       Browser kamu tidak mendukung elemen audio.
     </audio>
@@ -302,5 +470,31 @@
   <footer>
     <a href="index.html">🏠 Kembali ke Halaman Utama</a>
   </footer>
+
+  <script>
+    function slideLeft() {
+      const slide = document.getElementById('cardSlide');
+      slide.scrollBy({
+        left: -300,
+        behavior: 'smooth'
+      });
+    }
+
+    function slideRight() {
+      const slide = document.getElementById('cardSlide');
+      slide.scrollBy({
+        left: 300,
+        behavior: 'smooth'
+      });
+    }
+
+    function toggleMusic() {
+      const toggle = document.getElementById('musicToggle');
+      const player = document.getElementById('musicPlayer');
+      
+      toggle.classList.toggle('active');
+      player.classList.toggle('show');
+    }
+  </script>
 </body>
 </html>
